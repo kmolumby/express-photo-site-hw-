@@ -7,6 +7,9 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Hi </h1>
+    <h1>Here are all the users </h1>
+    <% for (let i =0; i < users.length; i++) { %>
+        <li><%= users.name %></li>
+    <% } %>
 </body>
 </html>
