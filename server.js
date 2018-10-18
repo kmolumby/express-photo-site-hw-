@@ -9,16 +9,15 @@ const photoController = require('./controllers/photo')
 
 
 
-// app.use('/photo', photoController);
 
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(methodOverride('_method'));
 
-
+app.use('/photo', photoController);
 app.use('/user', userController);
 
 app.get ('/', (req,res) => {
- res.send('home page')
+ res.render('index.ejs')
 })
 app.listen(3000, () => {
     console.log('listening on port 3000')
