@@ -52,11 +52,21 @@ router.put('/:id', (req, res)=>{
     });
   });
 
-  router.delete('/:id', (req,res) => {
-      Users.findByIdAndDelete(req.params.id, () => {
-          res.redirect('/user')
-      })
+  router.delete('/:id', async (req,res) => {
+
+    try {
+        const user = await Users.findByIdAndDelete(req.params.id);
+
+        for (let i = 0; i < user.photos.length; i++){
+            await Photos.findByIdAndDelete(user.photos[i]._id);
+        }
+
+        await Users.findByIdAndDelete(req.params.id);
+        res.redirect('/user')
+    } catch (err) {
+        res.send(err)
+    }
+                
   })
-// user.photos.id(req.params.id).remove();
 
 module.exports = router;

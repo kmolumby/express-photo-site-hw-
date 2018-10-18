@@ -7,10 +7,14 @@
     <title>Document</title>
 </head>
 <body>
-    <header> 
-        <a href="/">Home</a>
-     </header>
-    <h1>Here is <%= photo.img %> taken by <%= user.name %></h1>
+    <nav> 
+            <a href="/">Home</a>
+            <a href="/photo">Photos</a>
+            <a href="/user">Users</a>
+    </nav>
+    <h1>Here is <%= photo.name %> taken by <%= user.name %></h1>
+    <img src="<%=photo.img%>" alt=""><br>
+
     <section> 
         <a href="/photo/<%=photo.id%>/edit">Edit</a>
     </section>

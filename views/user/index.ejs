@@ -8,11 +8,14 @@
 </head>
 <body>
     <header> 
-       <a href="/">Home</a></br>
-       <a href="/user/new">Create a new user</a></br>
-       <a href="/photo/new">Create a new photo</a>
+            <a href="/">Home</a>
+            <a href="/photo">Photos</a>
+            <a href="/user">Users</a>
     </header>
     <h1>Here are all the users </h1>
+    <h1>
+            <a href="/user/new">Create a new user</a>
+        </h1>
     
     <% for (let i =0; i < users.length; i++) { %>
         <li>

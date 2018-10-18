@@ -8,7 +8,9 @@
 </head>
 <body>
     <header> 
-       <a href="/">Home</a>
+            <a href="/">Home</a>
+            <a href="/photo">Photos</a>
+            <a href="/user">Users</a>
     </header>
     <h1>Create a New Photo</h1>
     <form action="/photo" method=POST >
@@ -18,6 +20,7 @@
            <% } %>
         </select>
         Image: <input type="text" name="img">
+        Name: <input type="text" name="name">
         Caption: <input type="text" name="caption">
         <input type="submit">
     </form>

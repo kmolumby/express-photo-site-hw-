@@ -82,11 +82,22 @@ router.put('/:id', (req, res)=>{
     });
   });
 
-  router.delete('/:id', (req,res) => {
-      Photos.findByIdAndDelete(req.params.id, () => {
-          res.redirect('/photo')
-      })
-  })
+  router.delete('/:id', async (req, res) => {
+    try {
+
+        const user = await Users.findOne({'photos._id': req.params.id});
+        const photo = await Photos.findById(req.params.id);
+        user.photos.id(req.params.id).remove();
+        console.log('deleting')
+
+        await Photos.findByIdAndDelete(req.params.id);
+
+        await user.save();
+        res.redirect('/photo');
+    } catch(err){
+        res.send(err);
+    }
+})
 
 
 module.exports = router;

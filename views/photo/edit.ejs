@@ -8,11 +8,14 @@
 </head>
 <body>
     <header> 
-      <a href="/">Home</a>
+            <a href="/">Home</a>
+            <a href="/photo">Photos</a>
+            <a href="/user">Users</a>
     </header>
     <h1> Edit</h1>
     <form action="/photo/<%=photo._id%>?_method=PUT" method=POST >
         Image: <input type="text" name="img" value="<%=photo.img%>">
+        Name: <input type="text" name="name" value ="<%=photo.name%>">
         Caption: <input type="text" name="caption" value="<%=photo.caption%>">
         <input type="submit" value='update'>
     </form>
